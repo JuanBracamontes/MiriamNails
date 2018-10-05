@@ -1,0 +1,65 @@
+
+<ion-content padding class="fondo" no-bounce>
+
+  <ion-grid>
+    <ion-row margin-top="30px" align="center">
+      <ion-col col-12>
+        <h1 style="color:white;font-size:50px;font-weight: bold"> Del Valle Nails</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row align="center">
+      <ion-col col-12>
+        <!--<ion-icon md="md-hand" style="font-size: 100px;color: white;"></ion-icon>-->
+        <ion-icon name="heart" style="font-size: 100px;color: white;"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!--<ion-list>-->
+
+    <!--<ion-item class="item-input">-->
+      <!--<ion-label>Usuario:</ion-label>-->
+      <!--<input type="text">-->
+    <!--</ion-item>-->
+
+    <!--<ion-item class="item-input" style="margin-top: 5%">-->
+      <!--<ion-label>Contraseña:</ion-label>-->
+      <!--<input type="password">-->
+    <!--</ion-item>-->
+
+  <!--</ion-list>-->
+  <ion-grid>
+    <ion-row>
+       <ion-col col-12 align="center">
+         <ion-icon class="estilo-letra" style="margin-right: 10px;" name="person"></ion-icon>
+         <label class="estilo-letra">Usuario:</label>
+         <input class="item-input" type="text" >
+       </ion-col>
+    </ion-row>
+    <ion-row style="margin-top: 20px;">
+       <ion-col col-12 align="center">
+         <ion-icon class="estilo-letra" style="margin-right: 10px;" name="lock"></ion-icon>
+         <label class="estilo-letra">Contraseña:</label>
+         <input class="item-input" type="password" >
+       </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row align="center">
+      <ion-col col-12>
+        <button ion-button color="secondary" round>Inciar Sesion</button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row margin-top="5px" align="center">
+       <ion-col col-12 >
+           <span style="color: white;font-weight: bold;font-size: 15px;" (click)="goToRegister()">REGISTRATE</span>
+       </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+
+</ion-content>

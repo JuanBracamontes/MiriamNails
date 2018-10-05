@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+page-home {
+  background-color: #f8a5c2;
+}
+.estilo-letra{
+  color: white;
+  font-size: 20px;
+  opacity: 0.8;
+}
+
+
+
+.contenedor{
+  margin-top: 70%;
+}
+div.scroll-content{
+ // overflow: unset;
+}
+
+.button-md-secondary{
+  color: white;
+  background-color: #be7fcd!important;
+}
+
+.item-input{
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  border-radius: 15px;
+  width: 90%;
+  height: 40px;
+  text-align: center;
+  height: 40px;
+  border:0px;
+}
+
+h1{
+  font-family: 'Pacifico', cursive;
+  //font-family: 'Oswald', sans-serif;
+  //font-family: 'Open Sans', sans-serif;
+  //font-family: 'PacificoRegular',cursive;
+}
+
+@font-face {
+  font-family: 'PacificoRegular';
+  src: url('../../assets/fonts/Pacifico-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/*----------------------------key frames--------------------------------------------*/
+
+@-webkit-keyframes cambiarImagen {
+
+  0%,50%{
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/imgs/modelo1.jpg");
+  }
+  50%,100%{
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/imgs/modelo2.jpg");
+  }
+  100%,0%{
+    width: 100%;
+    height: 100%;
+    animation-duration: 5s;
+    background-image: url("../../assets/imgs/modelo1.jpg");
+  }
+
+}
+
+.fondo {
+  //float: left;
+  width: 100%;
+  height: 100%;
+  -webkit-animation-name: cambiarImagen; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 5s; /* Safari 4.0 - 8.0 */
+  animation-iteration-count: infinite;
+  animation-duration: 20s;
+  background-size: cover;
+}
+
