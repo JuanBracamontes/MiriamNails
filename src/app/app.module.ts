@@ -20,6 +20,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FirebaseProvider } from '../providers/firebase/firebase';
+import { AlertServiceProvider } from '../providers/alert-service/alert-service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAi91qoj-nafPxLO0BrVjzZUl4n7o2nZFo",
@@ -63,7 +64,8 @@ export const firebaseConfig = {
     SplashScreen,
     AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FirebaseProvider
+    FirebaseProvider,
+    AlertServiceProvider
   ]
 })
 export class AppModule {}

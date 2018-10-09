@@ -15,7 +15,7 @@
          <ion-col col-12 align="center">
            <ion-icon class="estilo-letra2" style="margin-right: 10px;" name="person"></ion-icon>
            <label class="estilo-letra2">Usuario:</label>
-           <input class="item-input" type="text" >
+           <input class="item-input" type="text" [(ngModel)]="usuario">
          </ion-col>
       </ion-row>
 
@@ -23,7 +23,7 @@
         <ion-col col-12 align="center">
           <ion-icon class="estilo-letra2" style="margin-right: 10px;" name="lock"></ion-icon>
           <label class="estilo-letra2">Contraseña:</label>
-          <input class="item-input" type="password" >
+          <input class="item-input" type="password" [(ngModel)]="contra" >
         </ion-col>
       </ion-row>
 
@@ -31,7 +31,7 @@
         <ion-col col-12 align="center">
           <ion-icon class="estilo-letra2" style="margin-right: 10px;" name="call"></ion-icon>
           <label class="estilo-letra2">Telefono:</label>
-          <input class="item-input" type="phone" >
+          <input class="item-input" type="number" [(ngModel)]="telefono">
         </ion-col>
       </ion-row>
 
@@ -67,7 +67,7 @@
 
       <ion-row>
          <ion-col col-12>
-           <button class="btn-cancel" ion-button style="background-color: #78e08f" (click)="registerUser()">Registrarme</button>
+           <button class="btn-cancel" ion-button style="background-color: #78e08f" (click)="validateFields()">Registrarme</button>
          </ion-col>
       </ion-row>
 

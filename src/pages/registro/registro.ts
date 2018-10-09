@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
-
-import {AngularFireDatabase} from '@angular/fire/database'
+import {FirebaseProvider} from "../../providers/firebase/firebase";
+import {AlertServiceProvider} from "../../providers/alert-service/alert-service";
 
 @IonicPage()
 @Component({
@@ -10,31 +10,57 @@ import {AngularFireDatabase} from '@angular/fire/database'
 })
 export class RegistroPage {
 
+  usuario:string;
+  contra:string;
+  telefono:string;
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private viwCtrl:ViewController,
-              private db:AngularFireDatabase) {
+              private dbService:FirebaseProvider,
+              private alertService:AlertServiceProvider) {
   }
 
   closeModal(){
     this.viwCtrl.dismiss();
   }
 
-  registerUser(){
-    debugger;
-    let user = 'admin';
-    let pwd = 'admin';
+  validateFields(){
+
+    if(this.checkEmptyFields(this.usuario)){
+      this.alertService.sendAlert('Campo Vacio','Llene el campo usuario');
+    }else if(this.checkEmptyFields(this.contra)){
+      this.alertService.sendAlert('Campo Vacio', 'Llene el campo contraseña');
+    }else if(this.checkEmptyFields(this.telefono)){
+      this.alertService.sendAlert('Campo Vacio', 'Llene el campo telefono');
+    }else{
+      this.registerUser(this.usuario,this.contra,this.telefono)
+    }
+
+  }
+
+  registerUser(user:any,pwd:any,tel:any){
+
     let usr = {
       usuario:user,
-      contra:pwd
+      contra:pwd,
+      tel:tel
     };
-    this.db.list('usuarios/').set(
-      usr.usuario,
-      {
-        usuario:usr.usuario,
-        contraseña:usr.contra
-      }
-    );
+    this.dbService.goToRegisterUser(usr).then((response:any)=>{
+      this.alertService.sendAlert('Usuario Registrado','Gracias por su preferencia');
+      this.usuario = '';
+      this.contra = '';
+      this.telefono = null;
+    }).catch((error:any)=>{
+      this.alertService.sendAlert('Error al registrar',error);
+    })
+
+  }
+
+  checkEmptyFields(campo:any){
+    if(campo == "" || campo==null || campo == undefined){
+        return true;
+    }
   }
 
 }
