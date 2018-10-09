@@ -13,6 +13,24 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {LoginPage} from "../pages/login/login";
 import {RegistroPage} from "../pages/registro/registro";
 
+
+
+//firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FirebaseProvider } from '../providers/firebase/firebase';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyAi91qoj-nafPxLO0BrVjzZUl4n7o2nZFo",
+  authDomain: "miriamnails-b5eb7.firebaseapp.com",
+  databaseURL: "https://miriamnails-b5eb7.firebaseio.com",
+  projectId: "miriamnails-b5eb7",
+  storageBucket: "miriamnails-b5eb7.appspot.com",
+  messagingSenderId: "839669283351"
+};
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -25,7 +43,10 @@ import {RegistroPage} from "../pages/registro/registro";
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -40,7 +61,9 @@ import {RegistroPage} from "../pages/registro/registro";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    AngularFireDatabase,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FirebaseProvider
   ]
 })
 export class AppModule {}

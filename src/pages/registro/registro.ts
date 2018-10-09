@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 
-/**
- * Generated class for the RegistroPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {AngularFireDatabase} from '@angular/fire/database'
 
 @IonicPage()
 @Component({
@@ -17,11 +12,29 @@ export class RegistroPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private viwCtrl:ViewController) {
+              private viwCtrl:ViewController,
+              private db:AngularFireDatabase) {
   }
 
   closeModal(){
     this.viwCtrl.dismiss();
+  }
+
+  registerUser(){
+    debugger;
+    let user = 'admin';
+    let pwd = 'admin';
+    let usr = {
+      usuario:user,
+      contra:pwd
+    };
+    this.db.list('usuarios/').set(
+      usr.usuario,
+      {
+        usuario:usr.usuario,
+        contraseña:usr.contra
+      }
+    );
   }
 
 }
