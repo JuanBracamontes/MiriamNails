@@ -1,3 +1,9 @@
+Node version: v10.11.0
+
+Cordova version: 8.1.1
+
+Config.xml file: 
+
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Miriam Nails</name>
@@ -84,3 +90,16 @@
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <engine name="android" spec="~7.0.0" />
 </widget>
+
+
+Plugins: 
+
+cordova-plugin-device,cordova-plugin-ionic-keyboard,cordova-plugin-ionic-webview,cordova-plugin-splashscreen,cordova-plugin-statusbar,cordova-plugin-whitelist
+
+Error retrieving Android platform information: 
+Android SDK is not set up properly. Make sure that the Android SDK 'tools' and 'platform-tools' directories are in the PATH variable. 
+
+Error: cmd: Command failed with exit code 1 Error output:
+"android" no se reconoce como un comando interno o externo,
+programa o archivo por lotes ejecutable.
+
