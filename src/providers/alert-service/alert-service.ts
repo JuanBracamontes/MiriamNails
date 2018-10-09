@@ -12,8 +12,7 @@ export class AlertServiceProvider {
   sendAlert(titulo:any, mensaje:any){
     let alerta = this.alertCtrl.create({
       title:titulo,
-      subTitle:mensaje,
-      buttons:['OK']
+      subTitle:mensaje
     });
     alerta.present();
   }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import {FirebaseProvider} from "../../providers/firebase/firebase";
 import {AlertServiceProvider} from "../../providers/alert-service/alert-service";
+import {HomePage} from "../home/home";
 
 @IonicPage()
 @Component({
@@ -51,6 +52,7 @@ export class RegistroPage {
       this.usuario = '';
       this.contra = '';
       this.telefono = null;
+      this.navCtrl.setRoot(HomePage);
     }).catch((error:any)=>{
       this.alertService.sendAlert('Error al registrar',error);
     })
