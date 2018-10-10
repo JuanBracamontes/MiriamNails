@@ -20,11 +20,15 @@
       </ion-row>
 
       <ion-row style="margin-top: 20px;">
-        <ion-col col-12 align="center">
+        <ion-col col-11 align="center">
           <ion-icon class="estilo-letra2" style="margin-right: 10px;" name="lock"></ion-icon>
           <label class="estilo-letra2">Contraseña:</label>
-          <input class="item-input" type="password" [(ngModel)]="contra" >
+          <input class="item-input" type="{{showPass? 'text':'password'}}" [(ngModel)]="contra" >
         </ion-col>
+          <ion-col col-1>
+            <ion-icon class="icon-pass" name="eye" *ngIf="showPass" (click)="showPass=!showPass"></ion-icon>
+            <ion-icon class="icon-pass" name="eye-off" *ngIf="!showPass" (click)="showPass=!showPass"></ion-icon>
+          </ion-col>
       </ion-row>
 
       <ion-row style="margin-top: 20px;">
@@ -33,6 +37,7 @@
           <label class="estilo-letra2">Telefono:</label>
           <input class="item-input" type="number" [(ngModel)]="telefono">
         </ion-col>
+
       </ion-row>
 
       <!--<ion-row style="margin-top: 10px;">-->

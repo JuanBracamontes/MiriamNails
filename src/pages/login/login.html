@@ -32,15 +32,15 @@
     <ion-row>
        <ion-col col-12 align="center">
          <ion-icon class="estilo-letra" style="margin-right: 10px;" name="person"></ion-icon>
-         <label class="estilo-letra">Usuario:</label>
-         <input class="item-input" type="text" >
+         <label class="estilo-letra" >Usuario:</label>
+         <input class="item-input" type="text" [(ngModel)]="usuario">
        </ion-col>
     </ion-row>
     <ion-row style="margin-top: 20px;">
        <ion-col col-12 align="center">
          <ion-icon class="estilo-letra" style="margin-right: 10px;" name="lock"></ion-icon>
-         <label class="estilo-letra">Contraseña:</label>
-         <input class="item-input" type="password" >
+         <label class="estilo-letra" >Contraseña:</label>
+         <input class="item-input" type="password" [(ngModel)]="pwd">
        </ion-col>
     </ion-row>
 
@@ -49,7 +49,7 @@
   <ion-grid>
     <ion-row align="center">
       <ion-col col-12>
-        <button ion-button color="secondary" round>Inciar Sesion</button>
+        <button ion-button color="secondary" round (click)="validateFields()">Inciar Sesion</button>
       </ion-col>
     </ion-row>
 

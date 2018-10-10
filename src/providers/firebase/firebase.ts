@@ -26,7 +26,22 @@ export class FirebaseProvider {
         }
       });
     })
+  }
 
+  loginUser(usr:any){
+    return new Promise((resolve,reject)=>{
+      this.db.object(`usuarios/${usr.usuario}`).valueChanges().subscribe((response:any)=>{
+        if(response!=null){
+          if(response.contraseña != usr.contraseña){
+              reject('Contraseña incorrecta');
+          }else{
+            resolve();
+          }
+        }else{
+          reject('Usuario no encontrado');
+        }
+      })
+    })
   }
 
 

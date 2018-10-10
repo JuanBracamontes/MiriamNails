@@ -21,6 +21,7 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/da
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import { AlertServiceProvider } from '../providers/alert-service/alert-service';
+import { GlobalProvider } from '../providers/global/global';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAi91qoj-nafPxLO0BrVjzZUl4n7o2nZFo",
@@ -65,7 +66,8 @@ export const firebaseConfig = {
     AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseProvider,
-    AlertServiceProvider
+    AlertServiceProvider,
+    GlobalProvider
   ]
 })
 export class AppModule {}

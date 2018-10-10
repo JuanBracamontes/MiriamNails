@@ -14,6 +14,7 @@ export class RegistroPage {
   usuario:string;
   contra:string;
   telefono:string;
+  showPass:boolean = false;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,

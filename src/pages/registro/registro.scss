@@ -11,12 +11,26 @@ page-registro {
   background-size: cover;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 
 .btn-cancel{
   //bottom: 0;
   //position: fixed;
   margin-top: 20%;
   width: 100%;
+}
+
+.icon-pass{
+  font-size: 30px;
+  margin-top: 30px;
+  color: white;
 }
 
 
