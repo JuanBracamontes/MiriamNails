@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
+import { NavController, NavParams,ModalController } from 'ionic-angular';
 import {RegistroPage} from "../registro/registro";
 import {GlobalProvider} from "../../providers/global/global";
 import {AlertServiceProvider} from "../../providers/alert-service/alert-service";
@@ -7,7 +7,6 @@ import {FirebaseProvider} from "../../providers/firebase/firebase";
 import {HomePage} from "../home/home";
 
 
-@IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
