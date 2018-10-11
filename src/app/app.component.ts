@@ -25,7 +25,7 @@ export class MyApp {
   }
 
   endSesion(Page:any){
-    this.rootPage = LoginPage;
-    this.menuCtrl.close(Page);
+    this.rootPage = Page;
+    this.menuCtrl.close();
   }
 }
