@@ -1,11 +1,15 @@
 
 import { Injectable } from '@angular/core';
 import {AngularFireDatabase} from '@angular/fire/database'
+import {Platform} from "ionic-angular";
+import {Storage} from "@ionic/storage";
 
 @Injectable()
 export class FirebaseProvider {
-
-  constructor(private db:AngularFireDatabase) {
+  clave:any;
+  constructor(private db:AngularFireDatabase,
+              private platfrom:Platform,
+              private storage:Storage) {
   }
 
   goToRegisterUser(usr:any){
@@ -35,6 +39,8 @@ export class FirebaseProvider {
           if(response.contraseña != usr.contraseña){
               reject('Contraseña incorrecta');
           }else{
+            this.clave = response.contraseña;
+            this.guardarStorage();
             resolve();
           }
         }else{
@@ -44,5 +50,37 @@ export class FirebaseProvider {
     })
   }
 
+  //Metodo para guardar la sesion en Storage SQLite
+  guardarStorage(){
+    if(this.platfrom.is('cordova')){
+      this.storage.set('clave',this.clave);
+    }else{
+      //web
+      localStorage.setItem('clave',this.clave);
+    }
+  }
+
+  cargarStorage(){
+    return new Promise((resolve)=>{
+      if(this.platfrom.is('cordova')){
+        this.storage.get('clave').then( val =>{
+          if(val){
+              this.clave = val;
+              resolve(true);
+          }else{
+            resolve(false);
+          }
+        })
+      }else{
+        //web
+        if(localStorage.getItem('clave')){
+          this.clave = localStorage.getItem('clave');
+          resolve(true);
+        }else{
+          resolve(false);
+        }
+      }
+    })
+  }
 
 }

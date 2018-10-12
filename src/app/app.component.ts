@@ -4,6 +4,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import {LoginPage} from "../pages/login/login";
+import {FirebaseProvider} from "../providers/firebase/firebase";
+import {HomePage} from "../pages/home/home";
 
 @Component({
   templateUrl: 'app.html'
@@ -18,17 +20,27 @@ export class MyApp {
     platform: Platform,
     statusBar: StatusBar,
     splashScreen: SplashScreen,
-    private menuCtrl:MenuController
+    private menuCtrl:MenuController,
+    private firebaseService:FirebaseProvider
   ) {
     platform.ready().then(() => {
-      statusBar.styleDefault();
-      splashScreen.hide();
+      firebaseService.cargarStorage().then((usuarioLogeado:any)=>{
+          statusBar.styleDefault();
+          splashScreen.hide();
+          if(usuarioLogeado){
+            this.rootPage = HomePage;
+          }else{
+            this.rootPage = LoginPage;
+          }
+      })
+
     });
   }
 
   endSesion(Page:any){
-    //his.rootPage = Page;
     this.nav.setRoot(Page);
     this.menuCtrl.close();
   }
+
+
 }
