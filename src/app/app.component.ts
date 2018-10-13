@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {LoginPage} from "../pages/login/login";
 import {FirebaseProvider} from "../providers/firebase/firebase";
 import {HomePage} from "../pages/home/home";
+import {Storage} from "@ionic/storage";
 
 @Component({
   templateUrl: 'app.html'
@@ -21,7 +22,8 @@ export class MyApp {
     statusBar: StatusBar,
     splashScreen: SplashScreen,
     private menuCtrl:MenuController,
-    private firebaseService:FirebaseProvider
+    private firebaseService:FirebaseProvider,
+    private storage:Storage
   ) {
     platform.ready().then(() => {
       this.firebaseService.cargarStorage().then((usuarioLogeado:any)=>{
@@ -39,6 +41,7 @@ export class MyApp {
 
   endSesion(Page:any){
     this.nav.setRoot(Page);
+    this.storage.remove('clave');
     this.menuCtrl.close();
   }
 
