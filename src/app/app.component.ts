@@ -16,7 +16,7 @@ export class MyApp {
 
   LoginP:any = LoginPage;
   rootPage:any;
-
+  Logeado:boolean;
   constructor(
     platform: Platform,
     statusBar: StatusBar,
@@ -31,8 +31,10 @@ export class MyApp {
           splashScreen.hide();
           if(usuarioLogeado){
             this.rootPage = HomePage;
+            this.Logeado = true;
           }else{
             this.rootPage = LoginPage;
+            this.Logeado = false;
           }
       })
 
