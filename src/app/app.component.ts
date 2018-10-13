@@ -24,7 +24,7 @@ export class MyApp {
     private firebaseService:FirebaseProvider
   ) {
     platform.ready().then(() => {
-      firebaseService.cargarStorage().then((usuarioLogeado:any)=>{
+      this.firebaseService.cargarStorage().then((usuarioLogeado:any)=>{
           statusBar.styleDefault();
           splashScreen.hide();
           if(usuarioLogeado){
