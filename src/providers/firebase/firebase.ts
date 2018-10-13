@@ -34,6 +34,7 @@ export class FirebaseProvider {
 
   loginUser(usr:any){
     return new Promise((resolve,reject)=>{
+      debugger;
       this.db.object(`usuarios/${usr.usuario}`).valueChanges().subscribe((response:any)=>{
         if(response!=null){
           if(response.contraseña != usr.contraseña){

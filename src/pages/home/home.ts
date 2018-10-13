@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {MenuController, NavController} from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  Logeado:boolean = true;
-  constructor(public navCtrl: NavController) {
 
+  constructor(private menuCtrl:MenuController) {
+    this.menuCtrl.enable(true,'sideMenu');
   }
 
 }

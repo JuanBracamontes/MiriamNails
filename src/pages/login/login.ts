@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams,ModalController } from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {NavController, NavParams, ModalController, Nav, MenuController} from 'ionic-angular';
 import {RegistroPage} from "../registro/registro";
 import {GlobalProvider} from "../../providers/global/global";
 import {AlertServiceProvider} from "../../providers/alert-service/alert-service";
@@ -12,16 +12,18 @@ import {HomePage} from "../home/home";
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
-  usuario:string;
-  pwd:string;
+  @ViewChild(Nav) nav: Nav;
+  usuario:string ='';
+  pwd:string='';
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public modalCtrl:ModalController,
               private _GS:GlobalProvider,
               private _alertService:AlertServiceProvider,
-              private _dbService:FirebaseProvider) {
+              private _dbService:FirebaseProvider,
+              private menuCtrl:MenuController) {
+    //this.disableMenu();
 
   }
 
@@ -42,11 +44,19 @@ export class LoginPage {
         contraseña:this.pwd
       };
       this._dbService.loginUser(usr).then((resolve:any)=>{
-        this.navCtrl.setRoot(HomePage);
+        debugger;
+        let Hp:any = HomePage;
+        this.navCtrl.setRoot(Hp);
+        this.usuario = '';
+        this.pwd = '';
       }).catch((rejected:any)=>{
         this._alertService.sendAlert('Error al iniciar sesion', rejected);
       })
     }
+  }
+
+  disableMenu(){
+    this.menuCtrl.enable(false,'sideMenu')
   }
 
 }

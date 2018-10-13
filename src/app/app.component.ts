@@ -32,8 +32,10 @@ export class MyApp {
           if(usuarioLogeado){
             this.rootPage = HomePage;
             this.Logeado = true;
+            this.menuCtrl.enable(true,'sideMenu');
           }else{
             this.rootPage = LoginPage;
+            this.menuCtrl.enable(false,'sideMenu');
             this.Logeado = false;
           }
       })
@@ -44,6 +46,7 @@ export class MyApp {
   endSesion(Page:any){
     this.nav.setRoot(Page);
     this.storage.remove('clave');
+    localStorage.clear();
     this.menuCtrl.close();
   }
 
