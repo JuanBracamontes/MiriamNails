@@ -14,7 +14,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   LoginP:any = LoginPage;
-  rootPage:any = LoginPage;
+  rootPage:any;
 
   constructor(
     platform: Platform,
