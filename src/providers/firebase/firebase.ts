@@ -26,7 +26,6 @@ export class FirebaseProvider {
               telefono:usr.tel
             }
           );
-          this.guardarStorage();
           resolve();
         }
       });

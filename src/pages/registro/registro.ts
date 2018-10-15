@@ -49,11 +49,11 @@ export class RegistroPage {
       tel:tel
     };
     this.dbService.goToRegisterUser(usr).then((response:any)=>{
-      this.alertService.sendAlert('Usuario Registrado','Gracias por su preferencia');
+      this.alertService.sendAlert('Usuario Registrado','Ya puede iniciar sesion');
       this.usuario = '';
       this.contra = '';
       this.telefono = null;
-      this.navCtrl.setRoot(HomePage);
+      this.closeModal();
     }).catch((error:any)=>{
       this.alertService.sendAlert('Error al registrar',error);
     })
