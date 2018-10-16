@@ -24,7 +24,7 @@ export class RegistroPage {
   }
 
   closeModal(){
-    this.viwCtrl.dismiss();
+    this.viwCtrl.dismiss('Registrado');
   }
 
   validateFields(){
@@ -49,7 +49,6 @@ export class RegistroPage {
       tel:tel
     };
     this.dbService.goToRegisterUser(usr).then((response:any)=>{
-      this.alertService.sendAlert('Usuario Registrado','Ya puede iniciar sesion');
       this.usuario = '';
       this.contra = '';
       this.telefono = null;

@@ -29,8 +29,12 @@ export class LoginPage {
 
   goToRegister(){
       let modal = this.modalCtrl.create(RegistroPage);
-
       modal.present();
+      modal.onDidDismiss(info =>{
+        if(info){
+            this.navCtrl.setRoot(HomePage);
+        }
+      })
   }
 
   validateFields(){
