@@ -7,16 +7,17 @@ import {LoginPage} from "../pages/login/login";
 import {FirebaseProvider} from "../providers/firebase/firebase";
 import {HomePage} from "../pages/home/home";
 import {Storage} from "@ionic/storage";
+import {LevantarCitaPage} from "../pages/levantar-cita/levantar-cita";
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
+  LevantarCita:any = LevantarCitaPage;
   LoginP:any = LoginPage;
+  HomeP:any = HomePage;
   rootPage:any;
-  Logeado:boolean;
   constructor(
     platform: Platform,
     statusBar: StatusBar,
@@ -45,6 +46,11 @@ export class MyApp {
     this.nav.setRoot(Page);
     this.storage.remove('clave');
     localStorage.clear();
+    this.menuCtrl.close();
+  }
+
+  goToPage(Page:any){
+    this.nav.setRoot(Page);
     this.menuCtrl.close();
   }
 

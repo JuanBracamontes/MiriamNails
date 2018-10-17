@@ -6,8 +6,11 @@
   </ion-header>
   <ion-content>
     <ion-list>
-      <button ion-item>
-        Agendar Cita
+      <button ion-item (click)="goToPage(HomeP)">
+        Ir al inicio
+      </button>
+      <button ion-item (click)="goToPage(LevantarCita)">
+        Agendar nueva cita
       </button>
       <button ion-item>
         Ver mis citas

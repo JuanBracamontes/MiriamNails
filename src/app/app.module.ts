@@ -20,6 +20,7 @@ import { GlobalProvider } from '../providers/global/global';
 
 //storage
 import{IonicStorageModule} from "@ionic/storage";
+import {LevantarCitaPage} from "../pages/levantar-cita/levantar-cita";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAi91qoj-nafPxLO0BrVjzZUl4n7o2nZFo",
@@ -36,7 +37,8 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     LoginPage,
-    RegistroPage
+    RegistroPage,
+    LevantarCitaPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     LoginPage,
-    RegistroPage
+    RegistroPage,
+    LevantarCitaPage
   ],
   providers: [
     StatusBar,
