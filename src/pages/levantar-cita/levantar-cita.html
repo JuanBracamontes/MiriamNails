@@ -1,7 +1,7 @@
 
 <ion-header>
 
-  <ion-navbar color="rosaSalmon">
+  <ion-navbar color="rosaSalmon" align="center">
     <ion-title>Crear cita</ion-title>
   </ion-navbar>
 
@@ -9,8 +9,29 @@
 
 
 <ion-content padding>
+
+  <ion-grid>
+    <ion-row align="center">
+       <ion-col col-12>
+           <h4 style="color: #ea8685;">Selecciona hora y fecha de tu cita</h4>
+       </ion-col>
+    </ion-row>
+  </ion-grid>
+
   <ion-item>
     <ion-label>Fecha</ion-label>
     <ion-datetime displayFormat="DD/MMM" pickerFormat="DD/MMM"></ion-datetime>
   </ion-item>
+  <ion-item>
+    <ion-label>Hora</ion-label>
+    <ion-datetime displayFormat="hh:mm a" pickerFormat="hh:mm a"></ion-datetime>
+  </ion-item>
+
+  <ion-grid>
+    <ion-row align="center">
+      <ion-col col-12>
+        <button ion-button color="rosaSalmon" round>Enviar cita</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
