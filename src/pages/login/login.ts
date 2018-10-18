@@ -32,7 +32,8 @@ export class LoginPage {
       modal.present();
       modal.onDidDismiss(info =>{
         if(info){
-            this.navCtrl.setRoot(HomePage);
+            let Hp:any = HomePage;
+            this.navCtrl.popToRoot(Hp);
         }
       })
   }
@@ -48,7 +49,6 @@ export class LoginPage {
         contraseña:this.pwd
       };
       this._dbService.loginUser(usr).then((resolve:any)=>{
-        debugger;
         let Hp:any = HomePage;
         this.navCtrl.setRoot(Hp);
         this.usuario = '';
