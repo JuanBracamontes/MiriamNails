@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {NavController, NavParams, ModalController, Nav, MenuController} from 'ionic-angular';
+import {NavController, NavParams, ModalController, Nav, MenuController, App} from 'ionic-angular';
 import {RegistroPage} from "../registro/registro";
 import {GlobalProvider} from "../../providers/global/global";
 import {AlertServiceProvider} from "../../providers/alert-service/alert-service";
@@ -22,7 +22,8 @@ export class LoginPage {
               private _GS:GlobalProvider,
               private _alertService:AlertServiceProvider,
               private _dbService:FirebaseProvider,
-              private menuCtrl:MenuController) {
+              private menuCtrl:MenuController,
+              private app:App) {
     //this.disableMenu();
 
   }
@@ -32,8 +33,9 @@ export class LoginPage {
       modal.present();
       modal.onDidDismiss(info =>{
         if(info){
-            let Hp:any = HomePage;
-            this.navCtrl.popToRoot(Hp);
+            debugger;
+            this.app.getRootNav().setRoot(HomePage);
+            console.log(this.app.getRootNav());
         }
       })
   }
